@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Under Emergency - AI Medical Triage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="phone-frame">
+    <!-- Background Decorative SVG (Heartbeat & Hospital Silhouette) -->
+    <div class="bg-decorations">
+      <svg class="ecg-line" viewBox="0 0 400 60" fill="none">
+        <path d="M0 30 H120 L135 10 L150 50 L165 20 L175 30 H400" stroke="#A7C2E4" stroke-width="1.5"/>
+      </svg>
+      <div class="plus-icon p1">+</div>
+      <div class="plus-icon p2">+</div>
+      <svg class="hospital-bg" viewBox="0 0 400 180" fill="none">
+        <rect x="40" y="90" width="60" height="90" fill="#BBD2EE" opacity="0.45"/>
+        <rect x="110" y="50" width="110" height="130" fill="#BBD2EE" opacity="0.55"/>
+        <rect x="230" y="75" width="75" height="105" fill="#BBD2EE" opacity="0.45"/>
+        <rect x="160" y="25" width="10" height="30" fill="#D92D2C" opacity="0.35"/>
+        <rect x="150" y="35" width="30" height="10" fill="#D92D2C" opacity="0.35"/>
+      </svg>
+    </div>
+
+    <!-- Top Status Bar -->
+    <div class="status-bar">
+      <span>9:41</span>
+      <div class="status-icons">
+        <i class="fas fa-signal"></i>
+        <i class="fas fa-wifi"></i>
+        <i class="fas fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- ================= 1. WELCOME SCREEN ================= -->
+    <section id="screen-welcome" class="screen active">
+      <div class="welcome-center">
+        <div class="shield-logo">
+          <i class="fas fa-plus"></i>
+        </div>
+        <h1>Under Emergency</h1>
+        <p class="subtitle">Your health. Our priority.</p>
+      </div>
+      <div class="welcome-actions">
+        <button class="btn btn-primary" onclick="navigateTo('screen-login')">Log In</button>
+        <button class="btn btn-white" onclick="navigateTo('screen-signup')">Create Account</button>
+        <button class="btn-link" onclick="navigateTo('screen-home')">Continue as Guest</button>
+      </div>
+    </section>
+
+    <!-- ================= 2. CREATE ACCOUNT SCREEN ================= -->
+    <section id="screen-signup" class="screen">
+      <div class="top-nav">
+        <button class="back-btn" onclick="navigateTo('screen-welcome')"><i class="fas fa-chevron-left"></i></button>
+        <div>
+          <h2>Create Account</h2>
+          <p class="subtitle">Join us to get started</p>
+        </div>
+        <div class="spacer"></div>
+      </div>
+
+      <form class="auth-form" onsubmit="event.preventDefault(); navigateTo('screen-home');">
+        <div class="input-group">
+          <i class="far fa-user"></i>
+          <div>
+            <label>Full Name</label>
+            <input type="text" value="Mohammed Al-Attas" required />
+          </div>
+        </div>
+        <div class="input-group">
+          <i class="far fa-envelope"></i>
+          <div>
+            <label>Email</label>
+            <input type="email" value="mohammed@email.com" required />
+          </div>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <label>Phone Number</label>
+            <input type="tel" value="+966 55 123 4567" required />
+          </div>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <div>
+            <label>Password</label>
+            <input type="password" value="••••••••" required />
+          </div>
+          <i class="far fa-eye eye-icon"></i>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" checked required />
+          <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+        </label>
+
+        <button type="submit" class="btn btn-primary">Create Account</button>
+      </form>
+      <p class="bottom-auth-text">Already have an account? <a href="#" onclick="navigateTo('screen-login')">Log In</a></p>
+    </section>
+
+    <!-- ================= 3. LOGIN SCREEN ================= -->
+    <section id="screen-login" class="screen">
+      <div class="top-nav">
+        <button class="back-btn" onclick="navigateTo('screen-welcome')"><i class="fas fa-chevron-left"></i></button>
+        <div>
+          <h2>Welcome back</h2>
+          <p class="subtitle">Log in to your account</p>
+        </div>
+        <div class="spacer"></div>
+      </div>
+
+      <form class="auth-form" onsubmit="event.preventDefault(); navigateTo('screen-home');">
+        <div class="input-group">
+          <i class="far fa-envelope"></i>
+          <div>
+            <label>Email</label>
+            <input type="email" value="mohammed@email.com" required />
+          </div>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <div>
+            <label>Password</label>
+            <input type="password" value="••••••••" required />
+          </div>
+          <i class="far fa-eye eye-icon"></i>
+        </div>
+
+        <div class="forgot-row"><a href="#">Forgot Password?</a></div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+
+        <div class="divider"><span>or continue with</span></div>
+        <div class="social-row">
+          <button type="button" class="btn-social" onclick="navigateTo('screen-home')"><i class="fab fa-google"></i> Google</button>
+          <button type="button" class="btn-social" onclick="navigateTo('screen-home')"><i class="fab fa-apple"></i> Apple</button>
+        </div>
+      </form>
+      <p class="bottom-auth-text">Don't have an account? <a href="#" onclick="navigateTo('screen-signup')">Create Account</a></p>
+    </section>
+
+    <!-- ================= 4. HOME SCREEN ================= -->
+    <section id="screen-home" class="screen has-nav">
+      <div class="home-header">
+        <div class="user-info">
+          <div class="avatar-circle"><i class="far fa-user"></i></div>
+          <div>
+            <h3>Welcome back, Mohammed!</h3>
+            <p class="subtitle">How can we help you today?</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <i class="far fa-bell" onclick="navigateTo('screen-settings')"></i>
+          <i class="fas fa-cog" onclick="navigateTo('screen-settings')"></i>
+          <i class="fas fa-sign-out-alt" onclick="navigateTo('screen-welcome')"></i>
+        </div>
+      </div>
+
+      <!-- Red Emergency CTA Banner -->
+      <div class="emergency-banner">
+        <div>
+          <h2>Need immediate help?</h2>
+          <p>Start AI injury &amp; emergency assessment now</p>
+        </div>
+        <button class="btn-white-sm" onclick="navigateTo('screen-symptoms')">Start Assessment</button>
+      </div>
+
+      <!-- Quick Menu Cards -->
+      <div class="menu-cards">
+        <div class="menu-card" onclick="navigateTo('screen-facilities')">
+          <div class="icon-box red-soft"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="card-text">
+            <h4>Nearby Hospitals</h4>
+            <p>Find emergency facilities near you</p>
+          </div>
+        </div>
+
+        <div class="menu-card" onclick="navigateTo('screen-prescriptions')">
+          <div class="icon-box green-soft"><i class="fas fa-file-medical"></i></div>
+          <div class="card-text">
+            <h4>My Prescriptions</h4>
+            <p>View active medications</p>
+          </div>
+        </div>
+
+        <div class="menu-card" onclick="navigateTo('screen-history')">
+          <div class="icon-box blue-soft"><i class="fas fa-history"></i></div>
+          <div class="card-text">
+            <h4>Assessment History</h4>
+            <p>Review past assessments</p>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="section-label">Recent Assessments</h4>
+      <div class="recent-card" onclick="navigateTo('screen-history')">
+        <div>
+          <span class="badge badge-mild">MILD</span>
+          <span class="date-text">2026-11-10</span>
+        </div>
+        <span class="view-link">View Details ›</span>
+      </div>
+    </section>
+
+    <!-- ================= 5. SELECT SYMPTOMS SCREEN ================= -->
+    <section id="screen-symptoms" class="screen has-nav">
+      <div class="top-nav">
+        <button class="back-btn" onclick="navigateTo('screen-home')"><i class="fas fa-chevron-left"></i></button>
+        <div>
+          <h2>Select Your Symptoms</h2>
+          <p class="subtitle">Choose all that apply</p>
+        </div>
+        <div class="spacer"></div>
+      </div>
+
+      <div class="symptoms-grid">
+        <div class="symptom-card" onclick="toggleSymptom(this, 'Chest pain')">
+          <i class="fas fa-heartbeat"></i>
+          <span>Chest pain</span>
+        </div>
+        <div class="symptom-card" onclick="toggleSymptom(this, 'Heavy bleeding')">
+          <i class="fas fa-tint"></i>
+          <span>Heavy bleeding</span>
+        </div>
+        <div class="symptom-card" onclick="toggleSymptom(this, 'Severe headache')">
+          <i class="fas fa-head-side-virus"></i>
+          <span>Severe headache</span>
+        </div>
+        <div class="symptom-card" onclick="toggleSymptom(this, 'High fever')">
+          <i class="fas fa-thermometer-three-quarters"></i>
+          <span>High fever</span>
+        </div>
+        <div class="symptom-card" onclick="toggleSymptom(this, 'Dizziness')">
+          <i class="fas fa-dizzy"></i>
+          <span>Dizziness</span>
+        </div>
+        <div class="symptom-card" onclick="toggleSymptom(this, 'Burn / Wound')">
+          <i class="fas fa-band-aid"></i>
+          <span>Burn / Wound</span>
+        </div>
+        <div class="symptom-card" onclick="toggleSymptom(this, 'Nausea/Vomiting')">
+          <i class="fas fa-user-injured"></i>
+          <span>Nausea/Vomiting</span>
+        </div>
+        <div class="symptom-card" onclick="toggleSymptom(this, 'Abdominal pain')">
+          <i class="fas fa-procedures"></i>
+          <span>Abdominal pain</span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary mt-12" onclick="navigateTo('screen-describe')">Next: Capture Injury &amp; Describe</button>
+    </section>
+
+    <!-- ================= 6. DESCRIBE & CAPTURE INJURY SCREEN ================= -->
+    <section id="screen-describe" class="screen has-nav">
+      <div class="top-nav">
+        <button class="back-btn" onclick="navigateTo('screen-symptoms')"><i class="fas fa-chevron-left"></i></button>
+        <div>
+          <h2>Describe &amp; Scan Injury</h2>
+          <p class="subtitle">Upload photo for AI visual triage</p>
+        </div>
+        <div class="spacer"></div>
+      </div>
+
+      <!-- Camera / Upload Box (Core Hackathon Feature) -->
+      <div class="upload-box" onclick="document.getElementById('injury-input').click()">
+        <input type="file" id="injury-input" accept="image/*" hidden onchange="previewInjury(event)" />
+        <div id="upload-placeholder">
+          <i class="fas fa-camera"></i>
+          <p><strong>Tap to Capture or Upload Injury Photo</strong></p>
+          <span>Supports cuts, burns, swelling, or rashes</span>
+        </div>
+        <img id="injury-preview" src="" alt="Injury Preview" hidden />
+      </div>
+
+      <div class="toggle-tabs">
+        <button class="tab-btn active"><i class="far fa-keyboard"></i> Type</button>
+        <button class="tab-btn" onclick="simulateVoice()"><i class="fas fa-microphone"></i> Voice Note</button>
+      </div>
+
+      <div class="textarea-card">
+        <textarea id="condition-text" maxlength="1000" placeholder="Tell us what happened, when it started, and any other relevant details..." oninput="updateCharCount()"></textarea>
+      </div>
+      <div class="char-count"><span id="char-num">0</span>/1000</div>
+
+      <button class="btn btn-primary" onclick="runAIAssessment()">Submit for AI Assessment</button>
+      <p class="ai-note"><i class="fas fa-shield-alt"></i> Our AI will analyze your photo &amp; symptoms to provide instant triage guidance.</p>
+    </section>
+
+    <!-- ================= 7. AI TRIAGE RESULT SCREEN (HACKATHON DEMO) ================= -->
+    <section id="screen-result" class="screen has-nav">
+      <div class="top-nav">
+        <button class="back-btn" onclick="navigateTo('screen-describe')"><i class="fas fa-chevron-left"></i></button>
+        <div>
+          <h2>AI Triage Result</h2>
+          <p class="subtitle">Instant Medical Assessment</p>
+        </div>
+        <!-- Hackathon Demo Switcher Button -->
+        <button class="demo-switch" onclick="toggleDemoSeverity()" title="Switch High/Low Risk for Demo">Demo Mode</button>
+      </div>
+
+      <div id="result-card" class="result-card critical">
+        <div class="result-header">
+          <span id="result-badge" class="badge badge-severe">SEVERE / HIGH RISK</span>
+          <span class="ai-confidence">AI Confidence: 96%</span>
+        </div>
+        <h3 id="result-title">Immediate Hospital Visit Required</h3>
+        <p id="result-desc">Detected signs of deep tissue injury / severe symptoms. Do not delay emergency medical care.</p>
+
+        <div class="first-aid-box">
+          <h4><i class="fas fa-first-aid"></i> Immediate First Aid Steps:</h4>
+          <ul id="first-aid-list">
+            <li>Apply firm, direct pressure using a clean sterile cloth.</li>
+            <li>Keep the injured area elevated above heart level.</li>
+            <li>Do not apply ointments or remove embedded objects.</li>
+          </ul>
+        </div>
+
+        <!-- Action Buttons change dynamically based on severity -->
+        <div id="result-actions">
+          <button class="btn btn-primary" onclick="navigateTo('screen-facilities')"><i class="fas fa-hospital"></i> Nearest Emergency Room</button>
+          <a href="tel:997" class="btn btn-outline-red mt-8"><i class="fas fa-phone-alt"></i> Call Ambulance (997)</a>
+        </div>
+      </div>
+      <p class="disclaimer-text">* Preliminary AI triage only. Not a substitute for professional medical diagnosis.</p>
+    </section>
+
+    <!-- ================= 8. NEARBY FACILITIES SCREEN ================= -->
+    <section id="screen-facilities" class="screen has-nav">
+      <div class="top-nav">
+        <button class="back-btn" onclick="navigateTo('screen-home')"><i class="fas fa-chevron-left"></i></button>
+        <div>
+          <h2>Nearby Facilities</h2>
+          <p class="subtitle">Find emergency care near you</p>
+        </div>
+        <div class="spacer"></div>
+      </div>
+
+      <!-- Stylized Map View -->
+      <div class="map-mock">
+        <div class="map-grid"></div>
+        <div class="pin p-black-1"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="pin p-black-2"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="pin-user"><div class="pulse"></div></div>
+      </div>
+
+      <div class="location-pills">
+        <span class="pill"><i class="fas fa-circle text-red"></i> You are here</span>
+        <span class="pill"><i class="fas fa-location-arrow"></i> My Location</span>
+      </div>
+
+      <div class="facility-card">
+        <div class="facility-top">
+          <div>
+            <h3>Central Emergency Hospital</h3>
+            <p class="subtitle">Emergency Room</p>
+          </div>
+          <span class="badge badge-mild">Recommended</span>
+        </div>
+        <div class="facility-meta">
+          <span><i class="fas fa-map-pin text-red"></i> 0.8 km &nbsp;•&nbsp; <i class="far fa-clock"></i> 4 min</span>
+          <span><i class="fas fa-star text-yellow"></i> 4.7 &nbsp;•&nbsp; <span class="text-green">● Low wait time</span></span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="alert('Opening Google Maps navigation to Central Emergency Hospital...')">Get Directions</button>
+      <a href="tel:997" class="btn btn-outline-red mt-8"><i class="fas fa-phone-alt"></i> (856) 123-4567 / 997</a>
+    </section>
+
+    <!-- ================= 9. MY PRESCRIPTIONS SCREEN ================= -->
+    <section id="screen-prescriptions" class="screen has-nav">
+      <div class="top-nav">
+        <button class="back-btn" onclick="navigateTo('screen-home')"><i class="fas fa-chevron-left"></i></button>
+        <div>
+          <h2>My Prescriptions</h2>
+          <p class="subtitle">Active medications and prescriptions</p>
+        </div>
+        <div class="spacer"></div>
+      </div>
+
+      <div class="white-card">
+        <div class="qr-row">
+          <div>
+            <h4>Digital Prescription QR Code</h4>
+            <p class="subtitle">Show this code at any pharmacy to fill your prescriptions</p>
+          </div>
+          <div class="qr-box"><i class="fas fa-qrcode"></i></div>
+        </div>
+        <button class="btn btn-outline-red btn-sm mt-8" onclick="alert('Prescription QR Code saved to gallery!')"><i class="fas fa-download"></i> Download QR Code</button>
+      </div>
+
+      <div class="white-card mt-12">
+        <div class="facility-top">
+          <div>
+            <h4>Amoxicillin</h4>
+            <p class="subtitle">500mg</p>
+          </div>
+          <span class="badge badge-mild">Active</span>
+        </div>
+        <div class="med-grid">
+          <div><span>Frequency</span><strong>Every 8 hours</strong></div>
+          <div><span>Duration</span><strong>10 days</strong></div>
+          <div><span>Prescribed</span><strong>Nov 10, 2026</strong></div>
+        </div>
+        <p class="med-note"><span>Instructions:</span> Complete full course even if feeling better.</p>
+        <div class="med-actions">
+          <button class="btn btn-outline-red btn-sm" onclick="alert('Reminder set for every 8 hours!')"><i class="far fa-clock"></i> Set Reminder</button>
+          <button class="btn btn-outline-red btn-sm"><i class="fas fa-download"></i> Download</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 10. ASSESSMENT HISTORY SCREEN ================= -->
+    <section id="screen-history" class="screen has-nav">
+      <div class="top-nav">
+        <button class="back-btn" onclick="navigateTo('screen-home')"><i class="fas fa-chevron-left"></i></button>
+        <div>
+          <h2>Assessment History</h2>
+          <p class="subtitle">Review your past assessments</p>
+        </div>
+        <div class="spacer"></div>
+      </div>
+
+      <div class="history-list">
+        <div class="history-card" onclick="navigateTo('screen-result')">
+          <div>
+            <h4>Minor headache</h4>
+            <div class="history-meta"><span class="badge badge-mild">MILD</span> <span>Nov 10, 2026</span></div>
+          </div>
+          <span class="view-link">View Details ›</span>
+        </div>
+
+        <div class="history-card" onclick="navigateTo('screen-result')">
+          <div>
+            <h4>Fever and cough</h4>
+            <div class="history-meta"><span class="badge badge-mod">MODERATE</span> <span>Oct 28, 2026</span></div>
+          </div>
+          <span class="view-link">View Details ›</span>
+        </div>
+
+        <div class="history-card" onclick="navigateTo('screen-result')">
+          <div>
+            <h4>Abdominal pain</h4>
+            <div class="history-meta"><span class="badge badge-severe">SEVERE</span> <span>Oct 15, 2026</span></div>
+          </div>
+          <span class="view-link">View Details ›</span>
+        </div>
+
+        <div class="history-card" onclick="navigateTo('screen-result')">
+          <div>
+            <h4>Dizziness</h4>
+            <div class="history-meta"><span class="badge badge-mild">MILD</span> <span>Oct 05, 2026</span></div>
+          </div>
+          <span class="view-link">View Details ›</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 11. SETTINGS & ABOUT SCREENS ================= -->
+    <section id="screen-settings" class="screen has-nav">
+      <div class="top-nav">
+        <button class="back-btn" onclick="navigateTo('screen-home')"><i class="fas fa-chevron-left"></i></button>
+        <div>
+          <h2>Settings</h2>
+          <p class="subtitle">Manage your preferences</p>
+        </div>
+        <div class="spacer"></div>
+      </div>
+
+      <div class="white-card profile-card">
+        <div class="profile-avatar">MA</div>
+        <h4>Mohammed Al-Attas</h4>
+        <p class="subtitle">mohammed@email.com</p>
+        <a href="#" class="edit-link">Edit Profile</a>
+      </div>
+
+      <h4 class="section-label">Notifications</h4>
+      <div class="white-card toggle-row">
+        <div class="toggle-info">
+          <i class="far fa-bell text-green"></i>
+          <div>
+            <h4>Push Notifications</h4>
+            <p class="subtitle">Receive alerts for important updates</p>
+          </div>
+        </div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+      </div>
+
+      <div class="white-card toggle-row mt-8">
+        <div class="toggle-info">
+          <i class="far fa-envelope text-red"></i>
+          <div>
+            <h4>Email Notifications</h4>
+            <p class="subtitle">Get updates via email</p>
+          </div>
+        </div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+      </div>
+
+      <div class="white-card mt-12 about-link-card" onclick="navigateTo('screen-about')">
+        <span><i class="fas fa-info-circle text-red"></i> About Under Emergency</span>
+        <span>›</span>
+      </div>
+    </section>
+
+    <section id="screen-about" class="screen has-nav">
+      <div class="top-nav">
+        <button class="back-btn" onclick="navigateTo('screen-settings')"><i class="fas fa-chevron-left"></i></button>
+        <div><h2>About</h2></div>
+        <div class="spacer"></div>
+      </div>
+      <div class="welcome-center">
+        <div class="shield-logo"><i class="fas fa-plus"></i></div>
+        <h1>Under Emergency</h1>
+        <p class="subtitle">Version 1.0.0</p>
+        <p class="copyright">© 2026 Under Emergency.<br>All rights reserved.</p>
+      </div>
+    </section>
+
+    <!-- ================= BOTTOM NAVIGATION BAR ================= -->
+    <nav id="bottom-nav" class="bottom-nav hidden">
+      <button class="nav-item active" data-target="screen-home" onclick="navigateTo('screen-home')">
+        <i class="fas fa-home"></i><span>Home</span>
+      </button>
+      <button class="nav-item" data-target="screen-symptoms" onclick="navigateTo('screen-symptoms')">
+        <i class="fas fa-plus-square"></i><span>Assessment</span>
+      </button>
+      <button class="nav-item" data-target="screen-prescriptions" onclick="navigateTo('screen-prescriptions')">
+        <i class="fas fa-file-prescription"></i><span>Prescriptions</span>
+      </button>
+      <button class="nav-item" data-target="screen-history" onclick="navigateTo('screen-history')">
+        <i class="fas fa-history"></i><span>History</span>
+      </button>
+      <button class="nav-item" data-target="screen-settings" onclick="navigateTo('screen-settings')">
+        <i class="fas fa-cog"></i><span>Settings</span>
+      </button>
+    </nav>
+
+    <!-- Loading AI Overlay -->
+    <div id="ai-loader" class="loader-overlay hidden">
+      <div class="spinner"></div>
+      <h3>Analyzing Injury &amp; Symptoms...</h3>
+      <p>Checking severity &amp; generating first aid</p>
+    </div>
+
+    <!-- Online Doctor Consultation Modal (For Non-Critical Cases) -->
+    <div id="doctor-modal" class="modal-overlay hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3><i class="fas fa-user-md text-green"></i> Online Triage Doctor</h3>
+          <button onclick="closeDoctorModal()">✕</button>
+        </div>
+        <div class="doctor-badge">
+          <strong>Dr. Sarah Al-Harbi</strong> • Emergency Tele-Medicine
+          <span class="online-dot">● Online Now</span>
+        </div>
+        <div class="chat-box" id="doctor-chat">
+          <div class="msg-doc">Hello! I reviewed your AI injury scan and symptoms. Since this is non-critical, there is no need to visit the ER. Clean the area gently and keep it dry. Do you feel any throbbing pain?</div>
+        </div>
+        <div class="chat-input">
+          <input type="text" id="chat-msg" placeholder="Reply to doctor..." />
+          <button onclick="sendDoctorMsg()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

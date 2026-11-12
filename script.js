@@ -4,7 +4,7 @@
 // For security on public GitHub, the live API key was removed.
 // Replace the placeholder below (including the quotes) with your Gemini API key:
 // =========================================================================
-//const GEMINI_API_KEY = "PUT_YOUR_GEMINI_API_KEY_HERE_AND_REMOVE_THESE_QUOTES";
+const GEMINI_API_KEY = "PUT_YOUR_GEMINI_API_KEY_HERE_AND_REMOVE_THESE_QUOTES";
 
 let selectedSymptoms = [];
 let uploadedImageBase64 = null;

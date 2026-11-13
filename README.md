@@ -79,7 +79,7 @@ Beyond immediate patient triage, our long-term vision is to transform **Under Em
 
 ## Note for Hackathon Judges & Evaluators
 
-For security reasons on a public GitHub repository, the live Gemini API key has been removed from the source code[cite: 3]. To test the full AI analysis functionality locally or via your own deployment, please insert your Gemini API key on **line 7** of `script.js`[cite: 3]:
+For security reasons on a public GitHub repository, the live Gemini API key has been removed from the source code. To test the full AI analysis functionality locally or via your own deployment, please insert your Gemini API key on **line 7** of `script.js`:
 
 ```javascript
 const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";

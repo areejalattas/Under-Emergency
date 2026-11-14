@@ -10,7 +10,7 @@ An intelligent AI-driven web application designed to revolutionize emergency med
 * **Interactive Figma Prototype:** [Open Under Emergency Prototype](https://www.figma.com/proto/tjfBsjOOdXF7YmpWuirqpN/under-emergency?node-id=2-2225&viewport=-112%2C1013%2C0.19&t=g8sCJyntyeNSYKZQ-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2%3A2225&show-proto-sidebar=1&page-id=0%3A1)
 * **Demo Video:** [Watch Video Walkthrough](https://drive.google.com/file/d/1qDUFizreQWyxDWFMB_kepGRk8oZzUmZ5/view?usp=sharing)
 * **UI/UX Source File:** Included in the repository as `under emergency.fig`
-* * Full Patient Ecosystem Prototype (Sihatek Care):** [Launch Patient Portal](https://health-bridge-ar.lovable.app/)
+*  Full Patient Ecosystem Prototype (Sihatek Care):** [Launch Patient Portal](https://health-bridge-ar.lovable.app/)
 * *Clinical Literature Review & Saudi ED Research (49+ Studies):** [View Research Matrix](https://docs.google.com/document/d/1djhqRv4B4Yl9yCl-WU2N048bBznkfxDHIK8N6Do5RXI/edit?usp=drivesdk)
 ---
 

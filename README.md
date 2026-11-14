@@ -11,7 +11,7 @@ An intelligent AI-driven web application designed to revolutionize emergency med
 * **Demo Video:** [Watch Video Walkthrough](https://drive.google.com/file/d/1qDUFizreQWyxDWFMB_kepGRk8oZzUmZ5/view?usp=sharing)
 * **UI/UX Source File:** Included in the repository as `under emergency.fig`
 * * Full Patient Ecosystem Prototype (Sihatek Care):** [Launch Patient Portal](https://health-bridge-ar.lovable.app/)
-
+* *Clinical Literature Review & Saudi ED Research (49+ Studies):** [View Research Matrix](https://docs.google.com/document/d/1djhqRv4B4Yl9yCl-WU2N048bBznkfxDHIK8N6Do5RXI/edit?usp=drivesdk)
 ---
 
 ## Key Features
@@ -71,6 +71,15 @@ The triage workflow in **Under Emergency** is grounded in peer-reviewed emergenc
 * **Reducing Emergency Department Overcrowding:** Clinical studies confirm that directing non-urgent cases to appropriate care pathways through pre-hospital triage significantly reduces ED congestion and improves outcomes for critical patients.
 * **Human-in-the-Loop Clinical Safety:** Research on LLMs in emergency triage highlights that AI performs safest and most effectively as a **decision-support tool** (`AI Triage → Provider Review → Final Triage`) rather than a standalone autonomous replacement for clinicians.
 * **End-to-End Patient Journey:** Complementing the core AI triage tool, the extended patient portal prototype (**Sihatek Care**) demonstrates full-cycle care including a **Virtual Queue**, **E-Prescriptions**, **Medical Profile**, and **Nearby Hospital Routing**.
+
+---
+
+## Clinical & Research Foundation
+
+* **Evidence-Based Literature Review:** [View Full Research Matrix (49+ Peer-Reviewed Studies)](https://docs.google.com/document/d/1djhqRv4B4Yl9yCl-WU2N048bBznkfxDHIK8N6Do5RXI/edit?usp=drivesdk)
+
+The triage workflow in **Under Emergency** is grounded in peer-reviewed emergency medicine studies and Saudi hospital data addressing non-urgent ED overcrowding, **CTAS** triage alignment, public triage awareness, and reducing 72-hour unscheduled revisits through AI-assisted pre-hospital guidance.
+
 
 ## Future Vision & Roadmap
 
